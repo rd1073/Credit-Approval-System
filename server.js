@@ -2,15 +2,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const xlsx=require("xlsx");
-const pool = require("./db")
-const app = express();
-const port = 3000;
 
-// Parse the requests of content-type 'application/json'
+const port = 3000;
+const pool = require("./db")
+const customerRoutes=require("./routes/customerRoutes")
+
+
+const app = express();
 app.use(bodyParser.json());
 
-
   
+app.use("/", customerRoutes);
 
   
 
